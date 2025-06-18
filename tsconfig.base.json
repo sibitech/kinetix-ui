@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@kinetix/ui-components/*": ["packages/ui-components/src/*"],
+      "@kinetix/shared-types/*": ["packages/shared-types/src/*"],
+      "@kinetix/business-logic/*": ["packages/business-logic/src/*"],
+      "@kinetix/api-client/*": ["packages/api-client/src/*"]
+    }
+  },
+  "exclude": ["**/node_modules", "**/dist"]
+}

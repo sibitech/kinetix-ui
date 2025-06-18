@@ -1,0 +1,17 @@
+{
+  "name": "@kinetix/shared-types",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "typescript": "~5.8.3",
+    "tsup": "^8.0.0",
+    "eslint": "^9.25.0"
+  }
+}

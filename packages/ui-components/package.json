@@ -1,0 +1,22 @@
+{
+  "name": "@kinetix/ui-components",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@kinetix/shared-types": "workspace:*",
+    "react": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.2",
+    "typescript": "~5.8.3",
+    "tsup": "^8.0.0",
+    "eslint": "^9.25.0"
+  }
+}

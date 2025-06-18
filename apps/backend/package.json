@@ -1,0 +1,19 @@
+{
+  "name": "@kinetix/backend",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@kinetix/shared-types": "workspace:*",
+    "@kinetix/business-logic": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@vercel/node": "^3.0.0",
+    "typescript": "~5.8.3",
+    "eslint": "^9.25.0"
+  }
+}
