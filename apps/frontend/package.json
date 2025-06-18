@@ -10,18 +10,25 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@kinetix/ui-components": "workspace:*",
-    "@kinetix/shared-types": "workspace:*",
-    "@kinetix/business-logic": "workspace:*",
     "@kinetix/api-client": "workspace:*",
+    "@kinetix/business-logic": "workspace:*",
+    "@kinetix/firebase-auth": "workspace:*",
+    "@kinetix/shared-types": "workspace:*",
+    "@kinetix/ui-components": "workspace:*",
+    "firebase": "^10.14.1",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.2"
   },
   "devDependencies": {
+    "@types/node": "^20.19.1",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react": "^4.4.1",
+    "autoprefixer": "^10.4.21",
     "eslint": "^9.25.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.10",
     "typescript": "~5.8.3",
     "vite": "^6.3.5"
   }

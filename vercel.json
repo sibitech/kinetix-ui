@@ -1,7 +1,10 @@
 {
   "version": 2,
-  "buildCommand": "pnpm build",
+  "buildCommand": "pnpm install && pnpm build:packages && cd apps/frontend && pnpm build",
   "outputDirectory": "apps/frontend/dist",
+  "installCommand": "pnpm install",
+  "framework": "vite",
+  "devCommand": "pnpm dev",
   "rewrites": [
     { "source": "/api/:path*", "destination": "/apps/backend/api/:path*" }
   ]

@@ -1,5 +1,5 @@
 {
-  "name": "@kinetix/shared-types",
+  "name": "@kinetix/firebase-auth",
   "version": "0.0.0",
   "private": true,
   "main": "./dist/index.js",
@@ -8,6 +8,9 @@
   "scripts": {
     "build": "tsup",
     "lint": "eslint ."
+  },
+  "dependencies": {
+    "firebase": "^10.14.1"
   },
   "devDependencies": {
     "eslint": "^9.25.0",
