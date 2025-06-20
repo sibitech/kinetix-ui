@@ -1,10 +1,14 @@
+import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { getFirebaseAuth } from '@kinetix/firebase-auth';
+import { PatientTable } from '../components/PatientTable';
+import { Tabs, Tab, Box } from '@mui/material';
 
 export function Home() {
   const navigate = useNavigate();
   const { user } = useAuth();
+  const [tab, setTab] = useState(0);
 
   const handleSignOut = async () => {
     try {
@@ -37,11 +41,20 @@ export function Home() {
         </div>
       </nav>
       <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: 2 }}>
+          <Tabs value={tab} onChange={(_, v) => setTab(v)}>
+            <Tab label="Patients" />
+            <Tab label="Appointments" />
+          </Tabs>
+        </Box>
         <div className="px-4 py-6 sm:px-0">
-          <div className="bg-white shadow rounded-lg p-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Welcome to Kinetix</h2>
-            <p className="text-gray-600">You are now signed in and can access all features.</p>
-          </div>
+          {tab === 0 && <PatientTable />}
+          {tab === 1 && (
+            <Box sx={{ p: 3, textAlign: 'center', color: 'gray' }}>
+              <h2>Appointments</h2>
+              <p>Appointment management coming soon.</p>
+            </Box>
+          )}
         </div>
       </main>
     </div>

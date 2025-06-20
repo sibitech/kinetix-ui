@@ -1,0 +1,20 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "moduleResolution": "node",
+    "baseUrl": "./src",
+    "paths": {
+      "@kinetix/shared-types": ["../../shared-types/src"],
+      "./db": ["./db"]
+    }
+  },
+  "include": ["src/**/*", "src/patients.ts"],
+  "references": [
+    { "path": "../shared-types" }
+  ]
+}

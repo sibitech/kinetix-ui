@@ -6,15 +6,18 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "tsup",
+    "types": "tsc --emitDeclarationOnly --declaration --declarationMap --project tsconfig.json",
+    "build": "pnpm types && tsup",
     "lint": "eslint ."
   },
   "dependencies": {
-    "@kinetix/shared-types": "workspace:*"
+    "@kinetix/shared-types": "workspace:*",
+    "firebase-admin": "^13.4.0"
   },
   "devDependencies": {
     "typescript": "~5.8.3",
     "tsup": "^8.0.0",
-    "eslint": "^9.25.0"
+    "eslint": "^9.25.0",
+    "@types/node": "^24.0.3"
   }
 }
