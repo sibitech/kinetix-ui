@@ -1,0 +1,162 @@
+openapi: 3.0.3
+info:
+  title: Patient Management API
+  version: 1.0.0
+  description: REST API for managing patients in Kinetix
+servers:
+  - url: /api
+components:
+  securitySchemes:
+    firebaseAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Patient:
+      type: object
+      required:
+        - id
+        - firstName
+        - lastName
+        - dateOfBirth
+        - email
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the patient
+        firstName:
+          type: string
+        lastName:
+          type: string
+        dateOfBirth:
+          type: string
+          format: date
+        email:
+          type: string
+          format: email
+        phone:
+          type: string
+        address:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    PatientList:
+      type: object
+      properties:
+        patients:
+          type: array
+          items:
+            $ref: '#/components/schemas/Patient'
+        total:
+          type: integer
+        page:
+          type: integer
+        pageSize:
+          type: integer
+security:
+  - firebaseAuth: []
+paths:
+  /patients:
+    get:
+      summary: List patients (paginated)
+      security:
+        - firebaseAuth: []
+      parameters:
+        - in: query
+          name: page
+          schema:
+            type: integer
+            default: 1
+        - in: query
+          name: pageSize
+          schema:
+            type: integer
+            default: 10
+      responses:
+        '200':
+          description: List of patients
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatientList'
+    post:
+      summary: Create a new patient
+      security:
+        - firebaseAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Patient'
+      responses:
+        '201':
+          description: Patient created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Patient'
+  /patients/{id}:
+    get:
+      summary: Get a patient by ID
+      security:
+        - firebaseAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Patient details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Patient'
+        '404':
+          description: Patient not found
+    put:
+      summary: Update a patient by ID
+      security:
+        - firebaseAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Patient'
+      responses:
+        '200':
+          description: Patient updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Patient'
+        '404':
+          description: Patient not found
+    delete:
+      summary: Delete a patient by ID
+      security:
+        - firebaseAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Patient deleted
+        '404':
+          description: Patient not found
